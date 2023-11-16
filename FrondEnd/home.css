@@ -1,0 +1,31 @@
+/* Estilos para a navbar */
+.navbar {
+    background-color: #33333300; /* Cor de fundo da navbar */
+    padding: 1000px 0; /* Espaçamento interno superior e inferior */
+}
+
+.nav-list {
+    list-style-type: none; /* Removendo marcadores de lista */
+    margin: 5;
+    padding: 0;
+    display: flex; /* Alinhar os itens horizontalmente */
+    justify-content: center; /* Centralizar os itens na horizontal */
+}
+
+.nav-item {
+    margin: 0 15px; /* Espaçamento horizontal entre os itens */
+}
+
+.nav-item a {
+    text-decoration: none; /* Remover sublinhado dos links */
+    color: rgba(255, 255, 255, 0); /* Cor do texto dos links */
+    font-weight: bold; /* Texto em negrito */
+    font-size: 50px; /* Tamanho da fonte dos links */
+}
+/* Estilo para tornar a imagem maior */
+.imagem-grande {
+    max-width: 100%; /* A imagem não excederá a largura do contêiner pai */
+    height: auto; /* A altura será ajustada automaticamente para manter a proporção original */
+    width: 100%; /* Largura máxima desejada */
+}
+

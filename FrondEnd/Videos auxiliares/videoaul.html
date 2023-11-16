@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aulas auxiliares</title>
+</head>
+
+<body>
+    
+    <h1><i>Complemento para as aulas</i></h1>
+
+    <!-- Código de incorporação do YouTube -->
+   
+    <p>Aulas de Libras</p>
+    <iframe 
+        width="560" 
+        height="315" 
+        src="https://www.youtube.com/embed/UUZgF4ac_LY?si=J2FloeRJi3PkIB9h" 
+        title="YouTube video player" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+    ></iframe>
+    
+    <p>Aulas de Inglês</p> 
+    <iframe 
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/yaxRsYu1yUA?si=NbsspqLxQZeLGegj"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+    ></iframe>
+
+    <!-- Botão de Voltar -->
+    <a href="#" onclick="history.back(); return false;">Voltar</a>
+
+    <script>
+        // Funções para controlar a reprodução do vídeo
+        function playVideo() {
+            var iframe = document.getElementById("youtube-video");
+            iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+        }
+
+        function pauseVideo() {
+            var iframe = document.getElementById("youtube-video");
+            iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+        }
+    </script>
+</body>
+</html>
+
+
+

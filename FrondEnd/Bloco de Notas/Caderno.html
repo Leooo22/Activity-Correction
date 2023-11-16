@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anotações da Professora</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('C:\\Users\\leoba\\Downloads\\_2650be0e-5c73-4ad5-8212-f2431209b566.jpeg');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #anotacoes-container {
+            width: 80%;
+            max-width: 600px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #anotacoes {
+            width: 100%;
+            min-height: 200px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        #salvar-btn, #limpar-btn, #voltar-btn {
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        #lista-anotacoes {
+            list-style: none;
+            padding: 0;
+        }
+
+        .anotacao-item {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="anotacoes-container">
+    <textarea id="anotacoes" placeholder="Faça suas anotações aqui..."></textarea>
+    <button id="salvar-btn" onclick="salvarAnotacoes()">Salvar Anotações</button>
+    <button id="limpar-btn" onclick="limparTela()">Limpar Tela</button>
+    <button id="voltar-btn" onclick="voltar()">Voltar</button>
+    <ul id="lista-anotacoes"></ul>
+</div>
+
+<script>
+    function salvarAnotacoes() {
+        var anotacaoAtual = document.getElementById('anotacoes').value;
+        if (anotacaoAtual.trim() !== '') {
+            var listaAnotacoes = document.getElementById('lista-anotacoes');
+            var li = document.createElement('li');
+            li.className = 'anotacao-item';
+            li.appendChild(document.createTextNode(anotacaoAtual));
+            listaAnotacoes.appendChild(li);
+            // Limpa o campo de anotações após salvar
+            document.getElementById('anotacoes').value = '';
+        } else {
+            alert("Por favor, insira anotações antes de salvar.");
+        }
+    }
+
+    function limparTela() {
+        // Limpa tanto o campo de anotações quanto a lista de anotações
+        document.getElementById('anotacoes').value = '';
+        document.getElementById('lista-anotacoes').innerHTML = '';
+    }
+
+    function voltar() {
+        // Navega de volta na história do navegador
+        window.history.back();
+    }
+</script>
+
+</body>
+</html>

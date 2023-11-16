@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Correção de Provas</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f5f5f5;
+        }
+
+        .button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        .voltar {
+            background-color: #6c757d;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .voltar:hover {
+            background-color: #495057;
+        }
+
+        .form-group {
+            margin-top: 10px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 4px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .result {
+            font-weight: bold;
+            font-size: 20px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Notas dos Alunos</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Aluno</th>
+                    <th>Nota</th>
+                </tr>
+            </thead>
+            <tbody id="tabela-notas"></tbody>
+        </table>
+
+        <p class="result">A média das notas é: <span id="media">0.00</span></p>
+
+        <div class="form-group">
+            <label for="nome">Nome do Aluno:</label>
+            <input type="text" id="nome-input" required>
+        </div>
+
+        <div class="form-group">
+            <label for="nota">Nota:</label>
+            <input type="number" id="nota-input" min="0" max="10" step="0.01" required>
+        </div>
+
+        <div class="form-group">
+            <label for="faltas">Número de Faltas:</label>
+            <input type="number" id="faltas-input" min="0" required>
+        </div>
+        
+        <button class="button" onclick="adicionarNota()">Adicionar Nota</button>
+        <button class="button" onclick="verificarAprovacao()">Verificar Aprovação</button>
+        <button class="button" onclick="limparDados()">Limpar Dados</button>
+        <button class="voltar" onclick="voltar()">Voltar para a Tela Inicial</button>
+    </div>
+
+    <script>
+        var alunos = [];
+
+        function adicionarNota() {
+            var nomeInput = document.getElementById('nome-input');
+            var notaInput = document.getElementById('nota-input');
+            var faltasInput = document.getElementById('faltas-input');
+            var nota = parseFloat(notaInput.value);
+
+            if (!isNaN(nota) && nota >= 0 && nota <= 10) {
+                if (alunos.length < 6) {
+                    var aluno = {
+                        nome: nomeInput.value,
+                        nota: nota
+                    };
+                    alunos.push(aluno);
+                    nomeInput.value = '';
+                    notaInput.value = '';
+                    listarNotas();
+                    calcularMedia();
+                } else {
+                    alert('Você atingiu o limite de 4 alunos.');
+                }
+            } else {
+                alert('Digite uma nota válida entre 0 e 10.');
+            }
+        }
+
+        function listarNotas() {
+            var tabelaNotas = document.getElementById('tabela-notas');
+            tabelaNotas.innerHTML = '';
+
+            for (var i = 0; i < alunos.length; i++) {
+                var row = tabelaNotas.insertRow(i);
+                var cellAluno = row.insertCell(0);
+                var cellNota = row.insertCell(1);
+                cellAluno.textContent = alunos[i].nome;
+                cellNota.textContent = alunos[i].nota.toFixed(2);
+            }
+        }
+
+        function calcularMedia() {
+            var media = 0;
+            for (var i = 0; i < alunos.length; i++) {
+                media += alunos[i].nota;
+            }
+            if (alunos.length > 0) {
+                media /= alunos.length;
+            }
+            var mediaSpan = document.getElementById('media');
+            mediaSpan.textContent = media.toFixed(2);
+        }
+
+        function verificarAprovacao() {
+            var mediaSpan = document.getElementById('media');
+            var media = parseFloat(mediaSpan.textContent);
+            var faltasInput = document.getElementById('faltas-input');
+            var faltas = parseInt(faltasInput.value);
+
+            if (!isNaN(media) && !isNaN(faltas)) {
+                if (media >= 6.0 && faltas <= 10) {
+                    alert('Aluno Aprovado!');
+                } else {
+                    alert('Aluno Reprovado!');
+                }
+            } else {
+                alert('Preencha o nome, a nota e o número de faltas corretamente.');
+            }
+        }
+
+        function voltar() {
+            //  redirecionar para a tela inicial ou qualquer outra página desejada.
+        
+            window.location.href = "home.html";
+        }
+    </script>
+</body>
+</html>
+

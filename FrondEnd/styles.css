@@ -1,0 +1,162 @@
+
+/* Estilos para o visor */
+#display {
+    width: 100%;
+    height: 700px;
+    font-size: 300px;
+    text-align: right;
+    margin-bottom: 20px;
+    border: 90px solid #7ea194;
+    border-radius: 90px;
+    padding: 50px;
+    background-color: #afb6b6;
+}
+
+/* Estilos para os botões */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px; /* Reduzi o espaçamento entre os botões para melhorar o layout */
+}
+
+button {
+    width: 100%;
+    height: 50px;
+    font-size: 24px; /* Reduzi o tamanho da fonte para melhorar o ajuste nos botões */
+    cursor: pointer;
+    border: none;
+    border-radius: 50px;
+    background-color: #268cc7;
+    transition: background-color 0.1s ease-in-out;
+}
+
+button:hover {
+    background-color: #7f99a8;
+}
+
+/* Estilos para o botão de igual */
+button.equals {
+    background-color: #13631e;
+    color: #3a8f08;
+    font-weight: bold;
+}
+
+button.equals:hover {
+    background-color: #e67e22;
+}
+
+/* Estilos para o botão "C" (limpar) */
+button.clear {
+    background-color: #def700;
+    color: #20747a;
+    font-weight: bold;
+}
+
+button.clear:hover {
+    background-color: #000000;
+}
+
+/* Estilos gerais do corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f3f8;
+    margin: 20; /* Corrigi as margens para não afetar o layout */
+    padding: 20; /* Corrigi o padding para não afetar o layout */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Centraliza a calculadora verticalmente na página */
+}
+/* Estilos para a barra de ferramentas */
+.toolbar {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.toolbar button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 16px;
+    background-color: #58a4f5;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.1s ease-in-out;
+}
+
+.toolbar button:hover {
+    background-color: #6cdd85;
+}
+
+/* Estilo para a barra de navegação no topo */
+nav {
+    background-color: rgba(226, 212, 17, 0.7);
+    text-align: center;
+    position: fixed; /* Fixar a barra de navegação no topo */
+    top: 0; /* Colocar no topo da página */
+    width: 100%; /* Largura total da página */
+    z-index: 100; /* Certifique-se de que a barra de navegação apareça acima do conteúdo */
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    justify-content: center;
+}
+
+nav li {
+    margin-right: 20px;
+}
+
+/* Adicione algum espaço extra para o conteúdo principal para evitar que fique atrás da barra de navegação */
+.main-content {
+    margin-top: 60px; /* Ajuste conforme necessário para evitar a sobreposição da barra de navegação */
+}
+/* Estilo para o formulário */
+form {
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Estilo para os rótulos e campos de entrada */
+label, input {
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Estilo para o botão */
+button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Estilo para o botão quando o mouse estiver sobre ele */
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para a lista de notas */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Estilo para as notas da lista */
+li {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+/* Estilo para a média das notas */
+#media {
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff;
+}
